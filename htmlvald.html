@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head><title>valid for eclipse</title>
+    <script>
+        function check()
+        {
+            let name=document.forms["valform"]["name"].value;
+            let a=document.getElementById("sname");
+            let ar1=[];
+            if(/^$/.test(name))
+            {
+                ar1.push("feild canotbe empty");
+            }
+            else if(!/^[a-zA-Z ]{3,30}$/.test(name))
+            {
+                ar1.push("please enter only alphabets");
+            }
+            a.innerHTML=ar1.join(",");
+
+            let pswd=document.forms["valform"]["pswd"].value;
+            let b=document.getElementById("spswd");
+            let ar2=[];
+            if(/^$/.test(pswd))
+            {
+                ar2.push("feild canotbe empty");
+            }
+            else if(!/^[a-zA-Z0-9@!#$%^&* ]{6,30}$/.test(pswd))
+            {
+                ar2.push("please enter only alphabets");
+            }
+            b.innerHTML=ar2.join(",");
+
+            let mobno=document.forms["valform"]["mobno"].value;
+            let c=document.getElementById("smobno");
+            let ar3=[];
+            if(/^$/.test(mobno))
+            {
+                ar3.push("feild canotbe empty");
+            }
+            else if(!/^[0-9]{3,30}$/.test(mobno))
+            {
+                ar3.push("please enter only alphabets");
+            }
+            c.innerHTML=ar3.join(",");
+
+            let mail=document.forms["valform"]["mail"].value;
+            let d=document.getElementById("smail");
+            let ar4=[];
+            if(/^$/.test(mail))
+            {
+                ar4.push("feild canotbe empty");
+            }
+            else if(!/^[a-zA-Z0-9@. ]{3,30}$/.test(mail))
+            {
+                ar4.push("please enter only alphabets");
+            }
+            d.innerHTML=ar4.join(",");
+
+            let addr=document.forms["valform"]["addr"].value;
+            let e=document.getElementById("saddr");
+            let ar5=[];
+            if(/^$/.test(addr))
+            {
+                ar5.push("feild canotbe empty");
+            }
+            else if(!/^[a-zA-Z0-9!@#$/-_;'/.,><:%^&*)( ]{3,50}$/.test(addr))
+            {
+                ar5.push("please enter only alphabets");
+            }
+            e.innerHTML=ar5.join(",");
+
+            let city=document.forms["valform"]["city"].value;
+            let f=document.getElementById("scity");
+            let ar6=[];
+            if(/^$/.test(city))
+            {
+                ar6.push("feild canotbe empty");
+            }
+            else if(!/^[a-zA-Z ]{3,30}$/.test(city))
+            {
+                ar6.push("please enter only alphabets");
+            }
+            f.innerHTML=ar6.join(",");
+
+            let state=document.forms["valform"]["state"].value;
+            let g=document.getElementById("sstate");
+            let ar7=[];
+            if(/^$/.test(state))
+            {
+                ar7.push("feild canotbe empty");
+            }
+            else if(!/^[a-zA-Z ]{3,30}$/.test(state))
+            {
+                ar7.push("please enter only alphabets");
+            }
+            g.innerHTML=ar7.join(",");
+
+            let gender=document.forms["valform"]["gender"].value;
+            let h=document.getElementById("sgender");
+            let ar8=[];
+            if(/^$/.test(gender))
+            {
+                ar8.push("feild canotbe empty");
+            }
+            
+            h.innerHTML=ar8.join(",");
+
+            return false;
+                        
+        }
+    </script>
+    <style>
+        body
+        {
+            background-color: aqua;
+            
+        }
+        .formsss
+        {
+            background-color: white;
+            width: 250px;
+            border-radius: 10px;
+            
+        }
+        span
+        {
+            color: red;
+            font-size: small;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            
+        }
+    </style>
+    </head>
+    <body>
+        <div class="formsss">
+            <form name="valform" onsubmit=" return check()">
+                <table>
+                    <tr><td>Name</td><td><input type="text" name="name"></td></tr>
+                    <tr><td></td><td><span id="sname" ></span></td></tr>
+
+                    <tr><td>Password</td><td><input type="password" name="pswd"></td></tr>
+                    <tr><td></td><td><span id="spswd" ></span></td></tr>
+
+                    <tr><td>MobileNo</td><td><input type="tel" name="mobno"></td></tr>
+                    <tr><td></td><td><span id="smobno" ></span></td></tr>
+
+                    <tr><td>Email</td><td><input type="email" name="mail"></td></tr>
+                    <tr><td></td><td><span id="smail" ></span></td></tr>
+
+                    <tr><td>Gender</td><td><input type="radio" value= "male" name="gender">Male<input type="radio" value="female" name="gender">Female</td></tr>
+                    <tr><td></td><td><span id="sgender" ></span></td></tr>
+
+                    <tr><td>Address</td><td><input type="text" name="addr"></td></tr>
+                    <tr><td></td><td><span id="saddr" ></span></td></tr>
+
+                    <tr><td>City</td><td><input type="text" name="city"></td></tr>
+                    <tr><td></td><td><span id="scity" ></span></td></tr>
+
+                    <tr><td>state</td><td><input type="text" name="state"></td></tr>
+                    <tr><td></td><td><span id="sstate" ></span></td></tr>
+                    
+                    <tr><td><input type="reset" value="reset"></td><td><input type="submit" value="check"></td></tr>              
+                </table>
+            </form>
+        </div>
+    </body>
+</html>

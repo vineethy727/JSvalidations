@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration Form</title>
+    </head>
+    <body>
+        <fieldset>
+            <legend>REGISTRATION</legend>
+            <form name="regForm" onsubmit="return register()">
+                <table>
+                    <tr>
+                        <td>First Name</td>
+                        <td>
+                            <input type="text" name="fname" placeholder="Enter First Name">
+                        </td>
+                        <td>
+                            <span id="fname_span" 
+                                  style="color: red;"></span>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Last Name</td>
+                        <td>
+                            <input type="text" name="lname" placeholder="Enter Last Name">
+                        </td>
+                        <td>
+                            <span id="lname_span" 
+                                  style="color: red;"></span>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Password</td>
+                        <td>
+                            <input type="password" name="upwd" placeholder="Enter Password">
+                        </td>
+                        <td>
+                            <span id="upwd_span" 
+                                  style="color: red;"></span>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Conf Password</td>
+                        <td>
+                            <input type="password" name="cupwd" placeholder="Repeat Password">
+                        </td>
+                        <td>
+                            <span id="cupwd_span" 
+                                  style="color: red;"></span>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Mobile</td>
+                        <td>
+                            <input type="tel" name="umobile" placeholder="Enter Mobile Number">
+                        </td>
+                        <td>
+                            <span id="umobile_span" 
+                                  style="color: red;"></span>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Email</td>
+                        <td>
+                            <input type="email" name="uemail" placeholder="Enter Email Address">
+                        </td>
+                        <td>
+                            <span id="uemail_span" 
+                                  style="color: red;"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" value="Register">
+                        </td>
+                        <td>
+                            <input type="reset" value="Clear">
+                        </td>
+                    </tr>
+
+                </table>
+            </form>
+        </fieldset>
+        <script>
+            function register(){
+                let fname = document.forms["regForm"]["fname"].value;
+                let fname_span = document.getElementById("fname_span");
+                let arr1 = [];
+                if(/^$/.test(fname)){
+                    arr1.push("fname can't empty");
+                }else if(!/^[A-Z]\w{6,8}$/.test(fname)){
+                    arr1.push("must follow regular expression");
+                }
+                fname_span.innerHTML = arr1.join(",");
+                let lname = document.forms["regForm"]["lname"].value;
+                let lname_span = document.getElementById("lname_span");
+                let arr2 = [];
+                if(/^$/.test(lname)){
+                    arr2.push("lname can't empty");
+                }else if(!/^[A-Z]\w{6,8}$/.test(lname)){
+                    arr2.push("must follow regular expression");
+                }
+                lname_span.innerHTML = arr2.join(",");
+
+
+                let upwd = document.forms["regForm"]["upwd"].value;
+                let upwd_span = document.getElementById("upwd_span");
+                let arr3 = [];
+                if(/^$/.test(upwd)){
+                    arr3.push("password can't empty");
+                }else if(!/^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*_]).{8,}$/.test(upwd)){
+                    arr3.push("must follow regular expression");
+                }
+                upwd_span.innerHTML = arr3.join(",");
+
+
+                let cupwd = document.forms["regForm"]["cupwd"].value;
+                let cupwd_span = document.getElementById("cupwd_span");
+                let arr4 = [];
+                if(/^$/.test(cupwd)){
+                    arr4.push("conf password can't empty");
+                }else if(upwd!=cupwd){
+                    arr4.push("password and confirm password must be same");
+                }
+                cupwd_span.innerHTML = arr4.join(",");
+
+
+
+                let umobile = document.forms["regForm"]["umobile"].value;
+                let umobile_span = document.getElementById("umobile_span");
+                let arr5 = [];
+                if(/^$/.test(umobile)){
+                    arr5.push("cant left blank");
+                }else if(!/^\d{10}$/.test(umobile)){
+                    arr5.push("enter valid mobile number");
+                }
+                umobile_span.innerHTML = arr5.join(",");
+
+
+                let uemail = document.forms["regForm"]["uemail"].value;
+                let uemail_span = document.getElementById("uemail_span");
+                let arr6 = [];
+                if(/^$/.test(uemail)){
+                    arr6.push("cant left blank");
+                }else if(!/^[a-zA-Z_]@.[a-zA-Z]{2,3}$/.test(uemail)){
+                    arr6.push("enter valid email address");
+                }
+                uemail_span.innerHTML = arr6.join(",");
+
+
+                return false;
+            }
+        </script>
+    </body>
+</html>

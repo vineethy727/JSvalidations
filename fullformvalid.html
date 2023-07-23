@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Fullformvalidation</title></head>
+    <body>
+        <form action="" name="fullform" onsubmit="return check()">
+            <table cellpadding="10px" >
+                <tr><td>FirstName</td><td><input type="text" name="fname"></td><td><span id="fnspan" style="color: red;"></span></td></tr>
+                <tr><td>LastName</td><td><input type="text" name="lname"></td><td><span id="lnspan" style="color: red;"></span></td></tr>
+                <tr><td>MobileNo</td><td><input type="tel" name="mobno"></td><td><span id="mnspan" style="color: red;"></span></td></tr>
+                <tr><td>Email</td><td><input type="email" name="mail"></td><td><span id="emailspan" style="color: red;"></span></td></tr>
+                <tr><td>Address</td><td><input type="text" name="address"></td><td><span id="addspan" style="color: red;"></span></td></tr>
+                <tr><td>password</td><td><input type="password" name="pswd"></td><td><span id="pswdspan" style="color: red;"></span></td></tr>
+                <tr><td>Confirm password</td><td><input type="text" name="cpswd"></td><td><span id="cpswdspan" style="color: red;"></span></td></tr>
+                <tr><td><input type="reset" value="reset"></td><td><input type="submit" value="Continue"></td></tr>
+            </table>
+        </form>
+        <script>
+            function check()
+            {
+                let fname=document.forms["fullform"]["fname"].value;
+                let fnspan=document.getElementById("fnspan");
+                let note1=[];
+                if(/^$/.test(fname))
+                {
+                    note1.push("feild cannot be empty");
+                }
+                else if(!/^[a-zA-Z]{1,25}$/.test(fname))
+                {
+                    note1.push("please enter only alphabets");
+                }
+                fnspan.innerHTML=note1.join(",");
+
+                let lname=document.forms["fullform"]["lname"].value;
+                let lnspan=document.getElementById("lnspan");
+                let note2=[];
+                if(/^$/.test(lname))
+                {
+                    note2.push("felid cannot be emoty");
+                }
+                else if(!/^[a-zA-Z]{1,25}$/.test(lname))
+                {
+                    note2.push("PLEASE ENTER ONLY alpnbets only");
+                }
+                lnspan.innerHTML=note2.join(",");
+
+                let mobno=document.forms["fullform"]["mobno"].value;
+                let mnspan=document.getElementById("mnspan");
+                let note3=[];
+                if(/^$/.test(mobno))
+                {
+                    note3.push("feild cannot be empty");
+                }
+                else if(!/^[0-9]{10}$/.test(mobno))
+                {
+                    note3.push("please enter only valid  10 digit mobile numbers");
+                }
+                mnspan.innerHTML=note3.join(",");
+
+                let mail=document.forms["fullform"]["mail"].value;
+                let emailspan=document.getElementById("emailspan");
+                let note4=[];
+                if(/^$/.test(mail))
+                {
+                    note4.push("field cannot be emoty");
+                }
+                else if(!/^[a-zA-Z0-9@.]{5,30}$/.test(mail))
+                {
+                    note4.push("please enter a valid email id");
+                }
+                emailspan.innerHTML=note4.join(",");
+
+                let address=document.forms["fullform"]["address"].value;
+                let addspan=document.getElementById("addspan");
+                let note5=[];
+                if(/^$/.test(address))
+                {
+                    note5.push("field cannot be emty");
+                }
+                else if(!/^[a-zA-Z0-9 -/:]{1,50}$/.test(address))
+                {
+                    note5.push("please enter correct address");
+                }
+                addspan.innerHTML=note5.join(",");
+
+                let pswd=document.forms["fullform"]["pswd"].value;
+                let pswdspan=document.getElementById("pswdspan");
+                let note6=[];
+                if(/^$/.test(pswd))
+                {
+                    note6.push("field cannot be empty");
+                }
+                else if(!/^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*_]).{8,}$/.test(pswd))
+                {
+                    note6.push("password must contain one capital, one small , one digit, one symbol and minmum of 8 charcters");
+                }
+                pswdspan.innerHTML=note6.join(",");
+
+                let cpswd=document.forms["fullform"]["cpswd"].value;
+                let cpswdspan=document.getElementById("cpswdspan");
+                let note7=[];
+                if(/^$/.test(cpswd))
+                {
+                    note7.push("field cannot be empty");
+                }
+                else if(pswd!=cpswd)
+                {
+                    note7.push("please enter the sam epassword as above");
+                }
+                cpswdspan.innerHTML=note7.join(",");
+
+                return false;
+            }
+        </script>
+    </body>
+</html>
